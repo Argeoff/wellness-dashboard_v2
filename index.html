@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>HA Dashboard</title>
+</head>
+<body>
+ <h1>Sensor Dashboard</h1>
+ <pre id="out">Loading...</pre>
+
+ <script>
+   const HA_URL = "https://YOUR_TUNNEL_URL";
+   const TOKEN = "YOUR_LONG_LIVED_TOKEN";
+
+   async function load() {
+     const res = await fetch(`${HA_URL}/api/states`, {
+       headers: {
+         Authorization: `Bearer ${TOKEN}`
+       }
+     });
+
+     const data = await res.json();
+
+     document.getElementById("out").textContent =
+       JSON.stringify(data, null, 2);
+   }
+
+   load();
+   setInterval(load, 5000);
+ </script>
+</body>
+</html>
