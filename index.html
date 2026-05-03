@@ -1,31 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
- <title>HA Dashboard</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wellness / Nursing Room Occupancy (Live)</title>
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
- <h1>Sensor Dashboard</h1>
- <pre id="out">Loading...</pre>
+  <div class="page">
 
- <script>
-   const HA_URL = "https://YOUR_TUNNEL_URL";
-   const TOKEN = "YOUR_LONG_LIVED_TOKEN";
+    <div class="sidebar">
+      <div class="nav-title">INF Hub</div>
+      <div class="nav-content">
+        <ul>
+        <li>Home</li>
+        <li>SUSS Facilities</li>
+        <li>Essential News</li>
+        <li>Self-Help Resources</li>
+        </ul>
+      </div>
+    </div>  
+    <div class="main">
+      <div class="main-title">Wellness / Nursing Room Occupancy</div>
+      <div class="content">
+        Room Occupancy (Live)
+      </div>
+    </div>
+    
+  </div>
 
-   async function load() {
-     const res = await fetch(`${HA_URL}/api/states`, {
-       headers: {
-         Authorization: `Bearer ${TOKEN}`
-       }
-     });
-
-     const data = await res.json();
-
-     document.getElementById("out").textContent =
-       JSON.stringify(data, null, 2);
-   }
-
-   load();
-   setInterval(load, 5000);
- </script>
+  <script src="script/script.js"></script>
 </body>
 </html>
