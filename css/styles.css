@@ -17,7 +17,6 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    border-right: 1px solid #e5e5e5;
 }
 
 .nav-title {
@@ -26,11 +25,14 @@ body {
     color: #ffffff;
     background-color: #001e60;
     padding: 25px 20px;
+    border-right: 1px solid #2b4a8f;
     border-bottom: 1px solid #e5e5e5;
 }
 
 .nav-content {
+    height: 100vh;
     padding: 20px;
+    border-right: 1px solid #e5e5e5;
 }
 
 .nav-content ul{
