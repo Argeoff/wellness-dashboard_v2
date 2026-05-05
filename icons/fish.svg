@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" style="margin-right: 8px; vertical-align: middle; stroke: #FFFFFF; stroke-width: 2; fill: none;">
+  <!-- Fish body -->
+  <path d="M2 32c0 11 14 20 30 20s30-9 30-20S48 12 32 12 2 21 2 32z"/>
+  <!-- Middle circle (eye) shifted slightly left -->
+  <circle cx="36" cy="32" r="8.3"/>
+  <!-- Tail fin shifted slightly left behind the circle -->
+  <path d="M28 32l-8-8v16l8-8z"/>
+</svg>

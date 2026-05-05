@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="120" height="120" role="img" aria-labelledby="title desc">
+  <title id="title">Building with clouds behind and ground</title>
+  <desc id="desc">Line-art building with left and right clouds behind; rectangular windows; letters "INF" above building with adjusted F</desc>
+ 
+  <style>
+    :root { --stroke:#FFFFFF; --stroke-width:2; }
+    .ln { fill:none; stroke:var(--stroke); stroke-width:var(--stroke-width); stroke-linecap:round; stroke-linejoin:round; }
+    .letter { fill:none; stroke:var(--stroke); stroke-width:1.2; stroke-linecap:round; stroke-linejoin:round; }
+  </style>
+ 
+  <!-- LEFT CLOUD -->
+  <path class="ln" d="M16 28h-5c-2 0-3.5-1.5-3.5-3.5s1.5-3.5 3.5-3.5c1-2 2.5-3 4-3 1.5 0 2.3 0.7 2.8 2"/>
+ 
+  <!-- RIGHT CLOUD -->
+  <path class="ln" d="M46 24h7.5c2.5 0 4.5-2 4.5-4.5s-2-4.5-4.5-4.5c-1.5-2.5-4-4-6.5-4-1.7 0-3.2 0.7-4.2 2"/>
+ 
+  <!-- BUILDING -->
+  <rect class="ln" x="18" y="14" width="28" height="38" rx="2"/>
+ 
+  <!-- door -->
+  <rect class="ln" x="26" y="40" width="12" height="12" rx="1.5"/>
+  <line class="ln" x1="32" y1="40" x2="32" y2="52"/>
+ 
+  <!-- windows -->
+  <g class="ln">
+    <rect x="22" y="18" width="4.5" height="4.5" rx="1"/>
+    <rect x="29.75" y="18" width="4.5" height="4.5" rx="1"/>
+    <rect x="37.5" y="18" width="4.5" height="4.5" rx="1"/>
+ 
+    <rect x="22" y="25" width="4.5" height="4.5" rx="1"/>
+    <rect x="29.75" y="25" width="4.5" height="4.5" rx="1"/>
+    <rect x="37.5" y="25" width="4.5" height="4.5" rx="1"/>
+ 
+    <rect x="22" y="32" width="4.5" height="4.5" rx="1"/>
+    <rect x="29.75" y="32" width="4.5" height="4.5" rx="1"/>
+    <rect x="37.5" y="32" width="4.5" height="4.5" rx="1"/>
+  </g>
+ 
+  <!-- letters "INF" above the building with slightly longer F middle stroke -->
+  <g class="letter" transform="translate(20,5) scale(1.2,0.8)">
+    <!-- I -->
+    <line x1="0" y1="0" x2="0" y2="6"/>
+    <!-- N -->
+    <line x1="3" y1="0" x2="3" y2="6"/>
+    <line x1="3" y1="0" x2="6" y2="6"/>
+    <line x1="6" y1="0" x2="6" y2="6"/>
+    <!-- F (middle stroke slightly longer than before, still shorter than top) -->
+    <line x1="9" y1="0" x2="9" y2="6"/>
+    <line x1="9" y1="0" x2="12" y2="0"/>
+    <line x1="9" y1="3" x2="12" y2="3"/>
+  </g>
+ 
+  <!-- GROUND LINE -->
+  <line class="ln" x1="16" y1="55" x2="48" y2="55"/>
+</svg>
