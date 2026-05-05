@@ -10,20 +10,42 @@
   <div class="page">
 
     <div class="sidebar">
-      <div class="nav-title">INF Hub</div>
+		<div class="nav-title">
+			<button class="nav-btn" id="nav-btn">
+				<img src="icons/nav.svg">
+			</button>
+			<span>INF Hub</span>
+		</div>
       <div class="nav-content">
         <ul>
-        <li>Home</li>
-        <li>SUSS Facilities</li>
-        <li>Essential News</li>
-        <li>Self-Help Resources</li>
+        <li><a href="https://insidesuss.workvivo.us/spaces/15722/pages/inf-hub" rel="noopener noreferrer"><img src="icons/h.svg"><span>Home</span></a></li>
+		<li><a href="#" rel="noopener noreferrer" style="background-color: #eef4ff; color: #001e60"><img src="icons/live.svg"><span>Room Occupancy (Live)</span></a></li>
+        <li><a href="https://insidesuss.workvivo.us/spaces/15722/pages/suss-facilities" rel="noopener noreferrer"><img src="icons/home.svg"><span>SUSS Facilities</span></a></li>
+        <li><a href="https://insidesuss.workvivo.us/spaces/15722/pages/essential-news" rel="noopener noreferrer"><img src="icons/news.svg"><span>Essential News</span></a></li>
+		<li><a href="https://hybrid.officernd.com/community/singapore-university-of-social-sciences/" target="_blank" rel="noopener noreferrer"><img src="icons/meeting.svg"><span>Meeting Room Booking</span></a></li>
+        <li><a href="https://insidesuss.workvivo.us/spaces/15722/pages/self-help-resources" rel="noopener noreferrer"><img src="icons/self-help.svg"><span>Self-Help Resources</span></a></li>
+		<li><a href="https://sim.service-now.com/suss?id=index_1" target="_blank" rel="noopener noreferrer"><img src="icons/fault-report.svg"><span>ServiceNow (SIM)</span></a></li>
+		<li><a href="https://insidesuss.workvivo.us/spaces/15722/pages/service-request" rel="noopener noreferrer"><img src="icons/service-request.svg"><span>Service Request (INF)</span></a></li>
+		<li><a href="https://insidesuss.workvivo.us/spaces/15722/pages/workplace-safety-and-health--2" rel="noopener noreferrer"><img src="icons/safety.svg"><span>Workplace Safety and Health</span></a></li>
+		<li><a href="https://insidesuss.workvivo.us/spaces/15722/pages/sustainability-efforts" rel="noopener noreferrer"><img src="icons/green.svg"><span>Sustainability</span></a></li>
+		<li><a href="https://insidesuss.workvivo.us/spaces/15722/pages/infographics" rel="noopener noreferrer"><img src="icons/infographics.svg"><span>Infographics</span></a></li>
+		<li><a href="https://insidesuss.workvivo.us/spaces/15722/pages/policies-procedures--1" rel="noopener noreferrer"><img src="icons/policies.svg"><span>Policies & SOPs</span></a></li>
         </ul>
       </div>
     </div>  
     <div class="main">
       <div class="main-title">Wellness / Nursing Room Occupancy</div>
       <div class="content">
-        Room Occupancy (Live)
+		<div class="tile">
+			<h3 class="title">Room Occupancy (Live)</h3>
+			<p class="sub-title">Wellness / Nursing room is located at SUSS Blk C, L3 C1 Lobby</p>
+			<div class="status-container">
+				<span id="status" class="vacant">Vacant</span>
+			</div>
+			<div class="last-updated">
+				Last updated: <span id="updated">Never</span><span id="dots"></span>
+			</div>
+		</div>	
       </div>
     </div>
     
