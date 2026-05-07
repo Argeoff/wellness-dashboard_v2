@@ -1,11 +1,32 @@
     let lastState = null;
     let secondsSinceUpdate = 0;
 	
+	const page = document.querySelector(".page");
 	const sidebar = document.querySelector(".sidebar");
 	const btn = document.querySelector(".nav-title button");
-
+	
+	//restore previous sidebar state on page load (using localstorage)
+	if (localStorage.getItem("sidebar-collapsed") === "true") {
+		sidebar.classList.add("collapsed");
+	}
+	
+	// now reveal page (after layout is correct)
+	requestAnimationFrame(() => {
+		page.classList.add("loaded");
+	});
+	
 	btn.addEventListener("click", () => {
 		sidebar.classList.toggle("collapsed");
+		localStorage.setItem("sidebar-collapsed", sidebar.classList.contains("collapsed"));
+	});
+	
+	// calculte sidebar icon position (for tooltip)
+	document.querySelectorAll(".nav-content li a").forEach(el => {
+    el.addEventListener("mouseenter", (e) => {
+			const rect = e.target.getBoundingClientRect();
+
+			e.target.style.setProperty("--tooltip-y", rect.top + rect.height / 2 + "px");
+		});
 	});
 	
     function addToHistory(state) {
