@@ -56,27 +56,31 @@ body {
 .nav-title {
 	display: flex;
 	align-items: center;
-	gap: 10px;
+	gap: 8px;
 	height: 80px;
 	font-size: 22px;
     font-weight: 600;
     color: #ffffff;
     background-color: #001e60;
-    padding: 25px 20px;
+    padding: 25px 15px;
     border-right: 1px solid #2b4a8f;
     border-bottom: 1px solid #e5e5e5;
 }
 
 .nav-title button {
 	background: none;
-    border: none;
-    padding: 0;
+    padding: 6px;
     margin: 0;
     font: inherit;
     color: inherit;
     cursor: pointer;
 	display: flex;
     align-items: center;
+	border: none;
+	border-radius: 16px;
+}
+.nav-title button:hover{
+	background-color: #3559A8;
 }
 
 .nav-content {
@@ -96,8 +100,8 @@ body {
 	position: relative;
 	display: flex;
 	align-items: center;
-	gap: 10px;
-	padding: 15px 20px;
+	gap: 14px;
+	padding: 15px 24px;
 	color: #757575;
 	font-size: 12px;
 	font-weight: 550;
