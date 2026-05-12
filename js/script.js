@@ -9,7 +9,7 @@
 	//restore previous sidebar state on page load (using localstorage)
 	if (localStorage.getItem("sidebar-collapsed") === "true") {
 		sidebar.classList.add("collapsed");
-		navtitle.classList.add("collapsed")
+		navtitle.classList.add("collapsed");
 	}
 	
 	// now reveal page (after layout is correct)
