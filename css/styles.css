@@ -24,20 +24,6 @@ h3 {
 	margin: 0;
 }
 
-/*mobile view dynamic sizing*/
-@media (max-width: 768px) {
-	h1 {
-		font-size: 0.95rem;
-	}
-	h2 {
-		font-size: 0.8rem;
-	}
-
-	h3 {
-		font-size: 0.6rem;
-	}
-}
-
 /* Hide page until sidebar state is restored */
 .page {
     opacity: 0;
@@ -47,19 +33,82 @@ h3 {
     opacity: 1;
 }
 
-.sidebar{
-    position: fixed;
+.top-container {
 	display: flex;
-    flex-direction: column;
-    top: 0;
-    left: 0;
-    width: 220px;
-    height: 100vh;
+	flex-direction: row;
 }
 
+.nav-title {
+	flex: 0 0 220px;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	
+	height: 80px;
+	box-sizing: border-box;
+	
+    color: #ffffff;
+    background-color: #001e60;
+    padding: 25px 18px;
+    border-right: 1px solid #2b4a8f;
+    border-bottom: 1px solid #e5e5e5;
+}
+.nav-title.collapsed {
+	flex: 0 0 75px;
+}
+.nav-title.collapsed h1 {
+	display: none;
+}
+
+.main-title{
+    position: sticky;
+    top: 0;
+    z-index: 999;
+	
+	height: 80px;
+	width: 100%;
+    color: #ffffff;
+	
+	display: flex;
+	align-items: center;
+	padding: 0 30px;
+    background-color: #001e60;
+    border-bottom: 1px solid #e5e5e5;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.nav-title button {
+	background: none;
+    padding: 6px;
+    margin: 0;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+	display: flex;
+    align-items: center;
+	border: none;
+	border-radius: 16px;
+}
+.nav-title button:hover{
+	background-color: #3559A8;
+}
+
+.main-container {
+	display:flex;
+    height:calc(100vh - 80px);
+}
+
+.sidebar{
+    flex: 0 0 220px;
+	
+    display:flex;
+    flex-direction:column;
+
+    border-right:1px solid #e5e5e5;
+}
 /* collapsed state */
 .sidebar.collapsed {
-    width: 75px;
+    flex: 0 0 75px;
 }
 
 /* hide title text */
@@ -81,36 +130,10 @@ h3 {
     justify-content: center;
 }
 
-.nav-title {
-	display: flex;
-	align-items: center;
-	gap: 8px;
-	height: 80px;
-    color: #ffffff;
-    background-color: #001e60;
-    padding: 25px 15px;
-    border-right: 1px solid #2b4a8f;
-    border-bottom: 1px solid #e5e5e5;
-}
-
-.nav-title button {
-	background: none;
-    padding: 6px;
-    margin: 0;
-    font: inherit;
-    color: inherit;
-    cursor: pointer;
-	display: flex;
-    align-items: center;
-	border: none;
-	border-radius: 16px;
-}
-.nav-title button:hover{
-	background-color: #3559A8;
-}
-
 .nav-content {
-    flex: 1;
+	width: 100%;
+	box-sizing: border-box;
+	
 	padding-top: 10px;
 	overflow-y: auto;
     border-right: 1px solid #e5e5e5;
@@ -135,6 +158,7 @@ h3 {
 }
 
 .nav-content img {
+	flex-shrink: 0;
 	height: 18px;
 	width: 18px;
 }
@@ -143,8 +167,8 @@ h3 {
 	background-color: #f0f0f0;
 }
 
-/* display tooltip only when collapsed */
-.sidebar.collapsed .nav-content li a:hover::after {
+/* Only show tooltip if sidebar is collapsed AND NOT active (desktop mode) */
+.sidebar.collapsed:not(.active) .nav-content li a:hover::after {
     content: attr(data-title);
     position: fixed;
     left: 75px; /* match your collapsed sidebar width */
@@ -163,37 +187,14 @@ h3 {
     z-index: 9999;
 }
 
-.main{
-    margin-left: 220px;
-    min-height: 100vh;
-}
-
-/*reduce main left margin when collapsed*/
-.sidebar.collapsed ~ .main {
-    margin-left: 75px;
-}
-
-.main-title{
-    position: sticky;
-    top: 0;
-    z-index: 999;
-	
-	height: 80px;
-    color: #ffffff;
-	
-	display: flex;
-	align-items: center;
-	padding: 25px 30px;
-    background-color: #001e60;
-    border-bottom: 1px solid #e5e5e5;
-	box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
 .content{
-	height: calc(100vh - 80px);
-    background-color: #f7f7f7;
-    padding: 20px 30px;
-	overflow-y: auto;
+    flex:1;
+    overflow-y:auto;
+
+    padding:20px 30px;
+    background:#f7f7f7;
+
+    min-width:0;
 }
 
 .tile{
@@ -251,4 +252,100 @@ h3 {
 .last-updated span {
 	font-size: 9px;
 	color: #6b7280;
+}
+
+/* =======================
+   Mobile View Styles
+======================= */
+@media (max-width: 768px) {
+
+    /* --- Headings --- */
+    h1 {
+        font-size: 1.2rem;
+    }
+    h2 {
+        font-size: 0.8rem;
+    }
+    h3 {
+        font-size: 0.6rem;
+    }
+
+    /* --- Sidebar overlay --- */
+    .sidebar {
+        position: fixed;           /* Sit on top of everything */
+        top: 0;
+        left: 0;
+        width: 100%;               /* Full screen overlay */
+        height: 100%;
+        background-color: rgba(0, 30, 96, 0.95);
+        transform: translateX(-100%); /* hidden by default */
+        z-index: 1000;             /* above content */
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sidebar.active {
+        transform: translateX(0);  /* slide in when active */
+    }
+	
+	/* Show nav labels in overlay mode */
+    .sidebar.active .nav-content li a span {
+        display: inline;
+    }
+
+    /* Make sure icons + labels are aligned */
+    .sidebar.active .nav-content li a {
+        justify-content: flex-start;
+        gap: 12px; /* restore spacing between icon and label */
+    }
+
+    /* --- Nav Title / Button --- */
+    .top-container .nav-title h1 {
+        display: none;      /* don't show title if mobile*/
+    }
+	
+	.nav-title {
+        flex: 0 0 75px; /*shorten nav title on mobile*/
+		justify-content: flex-start;  /* keep button on left */
+        padding: 15px 20px;
+    }
+
+    .nav-title button {
+        display: flex;       /* ensure visibility */
+        z-index: 1100;       /* above sidebar overlay */
+    }
+	
+	.nav-content {
+        display: block;            /* must be visible for overlay */
+        padding-top: 60px;         /* space for nav button */
+        overflow-y: auto;          /* scroll if content too tall */
+	}
+
+    .nav-content li a {
+		font-size: 1em;
+        padding: 15px 25px;
+        display: flex;
+		align-items: center;
+    }
+
+    /* --- Optional: dim background behind overlay --- */
+    .page.loaded::after {
+        content: '';
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.4);
+        z-index: 900; /* below sidebar */
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+    }
+
+    .sidebar.active ~ .page.loaded::after {
+        opacity: 1;
+        pointer-events: auto;
+    }
 }
