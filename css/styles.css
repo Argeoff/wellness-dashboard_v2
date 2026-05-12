@@ -1,13 +1,28 @@
 *{
-    box-sizing: border-box;
-}
-
-body {
     font-family: Roboto, sans-serif;
-    font-size: 14px;
     margin: 0;
     padding: 0;
 	overflow: hidden;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 16px;
+}
+
+h1 {
+	font-size: clamp(1.2rem, 1.4vw, 4rem);
+	margin: 0;
+}
+
+h2 {
+	font-size: clamp(0.9rem, 1.3vw, 3rem);
+	margin: 0;
+}
+
+h3 {
+	font-size: clamp(0.9rem, 1vw, 2.5rem);
+	margin: 0;
 }
 
 /* Hide page until sidebar state is restored */
@@ -35,7 +50,7 @@ body {
 }
 
 /* hide title text */
-.sidebar.collapsed .nav-title span {
+.sidebar.collapsed .nav-title h1 {
     display: none;
 }
 
@@ -58,8 +73,6 @@ body {
 	align-items: center;
 	gap: 8px;
 	height: 80px;
-	font-size: 22px;
-    font-weight: 600;
     color: #ffffff;
     background-color: #001e60;
     padding: 25px 15px;
@@ -153,10 +166,10 @@ body {
     z-index: 999;
 	
 	height: 80px;
-    font-size: 22px;
-    font-weight: 600;
     color: #ffffff;
 	
+	display: flex;
+	align-items: center;
 	padding: 25px 30px;
     background-color: #001e60;
     border-bottom: 1px solid #e5e5e5;
