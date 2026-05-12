@@ -3,11 +3,13 @@
 	
 	const page = document.querySelector(".page");
 	const sidebar = document.querySelector(".sidebar");
+	const navtitle = document.querySelector(".nav-title");
 	const btn = document.querySelector(".nav-title button");
 	
 	//restore previous sidebar state on page load (using localstorage)
 	if (localStorage.getItem("sidebar-collapsed") === "true") {
 		sidebar.classList.add("collapsed");
+		navtitle.classList.add("collapsed")
 	}
 	
 	// now reveal page (after layout is correct)
@@ -17,7 +19,13 @@
 	
 	btn.addEventListener("click", () => {
 		sidebar.classList.toggle("collapsed");
+		navtitle.classList.toggle("collapsed");
 		localStorage.setItem("sidebar-collapsed", sidebar.classList.contains("collapsed"));
+		
+		// Mobile: overlay toggle
+		if (window.innerWidth <= 768) {
+			sidebar.classList.toggle("active");
+		}
 	});
 	
 	// calculte sidebar icon position (for tooltip)
